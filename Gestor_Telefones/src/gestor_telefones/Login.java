@@ -53,6 +53,12 @@ public class Login extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         jLabel1.setText("INSIRA AS SUAS CREDÊNCIAIS");
 
+        txtUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtUsuarioActionPerformed(evt);
+            }
+        });
+
         txtSenha.setPreferredSize(new java.awt.Dimension(205, 36));
 
         jLabel2.setText("Usuário");
@@ -143,24 +149,24 @@ public class Login extends javax.swing.JFrame {
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
         // TODO add your handling code here:
      int l = 3;
-     int c = 2;
+     int c = 3;
      String usuarios[][] = new String[l][c];
      //Usuario                  //Senhas
-     usuarios[0][0] = "Helvio"; usuarios[0][1] = "Santana";
-     usuarios[1][0] = "Diego"; usuarios[1][1] = "Pires";
-     usuarios[2][0] = "Daniel"; usuarios[2][1] = "Gil";
+     usuarios[0][0] = "Helvio Santana"; usuarios[0][1] = "Santana997"; usuarios[0][2] = "helviocelso";
+     usuarios[1][0] = "Diego Pires"; usuarios[1][1] = "Pires123";usuarios[1][2] = "diegopires";
+     usuarios[2][0] = "Daniel Gil"; usuarios[2][1] = "Gil2005"; usuarios[2][2] = "danygil";
      
      boolean verificador = false;
      String u = txtUsuario.getText();
-     adminName= txtUsuario.getText();
      char [] s = txtSenha.getPassword();
      String senha = new String(s);
      for(int i = 0; i<l; i++)
      {
-         if(usuarios[i][0].equals(u) && usuarios[i][1].equals(senha))
+         if(usuarios[i][2].equals(u) && usuarios[i][1].equals(senha))
              {
                  Menu_cliente m = new Menu_cliente();
                  m.setVisible(true);
+                 adminName= usuarios[i][0];
                  m.setLblText(adminName);
                  verificador = true;
                  this.dispose();
@@ -184,6 +190,10 @@ public class Login extends javax.swing.JFrame {
         l.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnAbrirCActionPerformed
+
+    private void txtUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtUsuarioActionPerformed
 
     /**
      * @param args the command line arguments
