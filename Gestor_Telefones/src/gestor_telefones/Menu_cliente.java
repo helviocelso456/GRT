@@ -74,6 +74,11 @@ public class Menu_cliente extends javax.swing.JFrame {
         });
 
         jButton3.setText("Gestão de Telefones");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jButton4.setText("Planos Tarifários");
 
@@ -161,6 +166,12 @@ public class Menu_cliente extends javax.swing.JFrame {
         new GestaoClientes().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        new GestaoTelefone().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
