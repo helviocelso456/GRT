@@ -16,10 +16,10 @@ public class Login extends javax.swing.JFrame {
     /**
      * Creates new form Login
      */
-    private String adminName;
     public Login() {
         initComponents();
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -166,10 +166,8 @@ public class Login extends javax.swing.JFrame {
              {
                  Menu_cliente m = new Menu_cliente();
                  m.setVisible(true);
-                 adminName= usuarios[i][0];
-                 m.setLblText(adminName);
                  verificador = true;
-                 this.dispose();
+                 this.dispose(); 
              }
      }
      
@@ -234,10 +232,7 @@ public class Login extends javax.swing.JFrame {
         
     }
     
-    public String getAdminName()
-    {
-        return adminName;
-    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAbrirC;

@@ -50,9 +50,9 @@ public class Menu_cliente extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
 
-        lbl1.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        lbl1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lbl1.setText("Hélvio");
+        lbl1.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        lbl1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl1.setText("Gestor de Telefones");
         lbl1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -67,10 +67,15 @@ public class Menu_cliente extends javax.swing.JFrame {
         });
 
         jButton2.setText("Gestão de Clientes");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("Gestão de Telefones");
 
-        jButton4.setText("Consultas");
+        jButton4.setText("Planos Tarifários");
 
         jButton5.setText("Ver Saldos");
 
@@ -85,9 +90,11 @@ public class Menu_cliente extends javax.swing.JFrame {
                         .addComponent(jLabel2))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(20, 20, 20)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(lblMenuCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbl1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lbl1)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(12, 12, 12)
+                                .addComponent(lblMenuCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addGap(64, 64, 64)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
@@ -137,6 +144,7 @@ public class Menu_cliente extends javax.swing.JFrame {
         ImageIcon icon = new ImageIcon("src/imagens/usuario.png");
         icon.setImage(icon.getImage().getScaledInstance(lblMenuCliente.getWidth(), lblMenuCliente.getHeight(), 1));
         lblMenuCliente.setIcon(icon);
+       
              
     }//GEN-LAST:event_formWindowOpened
 
@@ -147,6 +155,12 @@ public class Menu_cliente extends javax.swing.JFrame {
        l.setVisible(true);
         
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        new GestaoClientes().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -181,12 +195,11 @@ public class Menu_cliente extends javax.swing.JFrame {
                 new Menu_cliente().setVisible(true);
             }
         });
+        
+        
     }
     
-    public void setLblText(String valor)
-    {
-        lbl1.setText(valor);
-    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

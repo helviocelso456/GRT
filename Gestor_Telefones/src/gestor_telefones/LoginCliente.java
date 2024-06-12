@@ -17,6 +17,7 @@ public class LoginCliente extends javax.swing.JFrame {
      */
     public LoginCliente() {
         initComponents();
+        txtTelefone.setDocument(new Filtros());
     }
 
     /**
