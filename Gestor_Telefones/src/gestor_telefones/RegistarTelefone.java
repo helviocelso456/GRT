@@ -28,10 +28,10 @@ public class RegistarTelefone extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTextField1 = new javax.swing.JTextField();
+        txtCliente = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnGerarTelefone = new javax.swing.JButton();
         lbl1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
@@ -53,9 +53,14 @@ public class RegistarTelefone extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setBackground(new java.awt.Color(51, 153, 0));
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Gerar Telefone");
+        btnGerarTelefone.setBackground(new java.awt.Color(51, 153, 0));
+        btnGerarTelefone.setForeground(new java.awt.Color(255, 255, 255));
+        btnGerarTelefone.setText("Gerar Telefone");
+        btnGerarTelefone.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGerarTelefoneActionPerformed(evt);
+            }
+        });
 
         lbl1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/telefone.png"))); // NOI18N
 
@@ -73,8 +78,8 @@ public class RegistarTelefone extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel1)
-                            .addComponent(jTextField1)
-                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 314, Short.MAX_VALUE)))
+                            .addComponent(txtCliente)
+                            .addComponent(btnGerarTelefone, javax.swing.GroupLayout.DEFAULT_SIZE, 314, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(148, 148, 148)
                         .addComponent(lbl1, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -93,9 +98,9 @@ public class RegistarTelefone extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnGerarTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(66, 66, 66))
@@ -116,6 +121,15 @@ public class RegistarTelefone extends javax.swing.JFrame {
         new GestaoTelefone().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void btnGerarTelefoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGerarTelefoneActionPerformed
+        // TODO add your handling code here:
+        String cliente = txtCliente.getText();
+        Telefone t = new Telefone();
+        t.setId_Cliente(cliente);
+        t.gerarTelefone();
+        
+    }//GEN-LAST:event_btnGerarTelefoneActionPerformed
 
     /**
      * @param args the command line arguments
@@ -153,11 +167,11 @@ public class RegistarTelefone extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnGerarTelefone;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel lbl1;
+    private javax.swing.JTextField txtCliente;
     // End of variables declaration//GEN-END:variables
 }

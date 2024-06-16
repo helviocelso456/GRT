@@ -1,0 +1,2 @@
+Cliente|cli100ao|Hélvio Celso Batalha Santana|Nif123AO|Normal|Activo|949142044|1000|AOA
+Cliente|cli101ao|Diego Pires|Nif234AO|Normal|Activo|924764857|1000|AOA
