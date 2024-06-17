@@ -76,7 +76,7 @@ public class Login extends javax.swing.JFrame {
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("GRT");
 
-        btnEntrar.setBackground(new java.awt.Color(0, 102, 255));
+        btnEntrar.setBackground(new java.awt.Color(0, 51, 153));
         btnEntrar.setForeground(new java.awt.Color(255, 255, 255));
         btnEntrar.setText("Entrar");
         btnEntrar.addActionListener(new java.awt.event.ActionListener() {
@@ -184,8 +184,7 @@ public class Login extends javax.swing.JFrame {
 
     private void btnAbrirCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAbrirCActionPerformed
         // TODO add your handling code here:
-        LoginCliente l = new LoginCliente();
-        l.setVisible(true);
+        new PainelCliente().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnAbrirCActionPerformed
 
