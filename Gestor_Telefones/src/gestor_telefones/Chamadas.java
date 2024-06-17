@@ -10,6 +10,8 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import static java.lang.Integer.parseInt;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import javax.swing.JOptionPane;
 
 /**
@@ -63,6 +65,8 @@ public class Chamadas {
                     }
                 }
                 
+                leitor.close();
+                
                 
             }
         
@@ -92,8 +96,8 @@ public class Chamadas {
                            escritor.newLine();
                            escritor.close();
                            JOptionPane.showMessageDialog(null, "Chamada Efetuada!!");
-                            atualizarSaldoVozCliente(custo);
-                            atualizarSaldoVozTelefone(custo);
+                           atualizarSaldoVozCliente(custo);
+                           atualizarSaldoVozTelefone(custo);
                         }
                         
                         else{
@@ -106,7 +110,7 @@ public class Chamadas {
                     }
                 }
                 
-                
+                leitor.close();
             }
         
             catch(Exception e)
@@ -127,6 +131,7 @@ public class Chamadas {
      {
          File inputFile = new File("src/arquivos/cliente.txt");
          File tempFile = new File("src/arquivos/temp.txt");
+         
          
          try(BufferedReader leitorCliente = new BufferedReader(new FileReader(inputFile));
          BufferedWriter escritorCliente = new BufferedWriter(new FileWriter(tempFile))){
@@ -150,6 +155,9 @@ public class Chamadas {
                  escritorCliente.write(line);
                  escritorCliente.newLine();
              }
+             
+             escritorCliente.close();
+             leitorCliente.close();
          }
          
          catch(Exception e)
@@ -174,15 +182,19 @@ public class Chamadas {
         else{
             tempFile.renameTo(inputFile);
         }
+        
+        
+        
      }
      
      public void atualizarSaldoVozTelefone(int valor)
      {
-         File inputFile = new File("src/arquivos/telefone.txt");
-         File tempFile = new File("src/arquivos/temp2.txt");
-         
-         try(BufferedReader leitorTelefone = new BufferedReader(new FileReader(inputFile));
-         BufferedWriter escritorTelefone = new BufferedWriter(new FileWriter(tempFile))){
+         new Thread(() ->{
+         File input = new File("src\\arquivos\\telefone.txt");
+         File temp = new File("src/arquivos/temp.txt");
+         try(BufferedReader leitorTelefone = new BufferedReader(new FileReader(input));
+         BufferedWriter escritorTelefone = new BufferedWriter(new FileWriter(temp)))
+         {
             
              String line;
              while((line = leitorTelefone.readLine()) != null)
@@ -204,6 +216,10 @@ public class Chamadas {
                  escritorTelefone.newLine();
                  
              }
+             
+             escritorTelefone.close();
+             leitorTelefone.close();
+             
          }
          
          catch(Exception e)
@@ -211,31 +227,28 @@ public class Chamadas {
              System.out.println("Erro");
          }
          
-         if (!inputFile.delete()) {
+        if (!input.delete()) {
             System.out.println("Não foi possível deletar o arquivo original");
             return;
         }
         
         else{
-            inputFile.delete();
+            input.delete();
         }
 
         // Renomear o arquivo temporário para o nome do arquivo original
-        if (!tempFile.renameTo(inputFile)) {
+        if (!temp.renameTo(input)) {
             System.out.println("Não foi possível renomear o arquivo temporário");
         }
         
         else{
-            tempFile.renameTo(inputFile);
+            temp.renameTo(input);
         }
+      }).start();
      }
+     
     
-    public void atualizarSaldoSMSCliente()
-    {
-        
-    }
-    
-    public void atualizarSaldoSmsTelefone()
+    public void atualizarSaldoSms()
     {
         
     }
@@ -266,7 +279,10 @@ public class Chamadas {
                     id= valor;
                     System.out.println(id);
                 }
+                
+                linha.close();
             }
+            
             
             catch(Exception e)
             {
