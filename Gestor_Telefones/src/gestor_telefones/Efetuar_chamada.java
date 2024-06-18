@@ -70,6 +70,11 @@ public class Efetuar_chamada extends javax.swing.JFrame {
         jLabel4.setText("SMS");
 
         jButton1.setText("SMS");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setBackground(new java.awt.Color(0, 51, 153));
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
@@ -167,11 +172,9 @@ public class Efetuar_chamada extends javax.swing.JFrame {
         // TODO add your handling code here:
         String emissor = txtEmissor.getText();
         String receptor = txtReceptor.getText();
-        String sms = txtSMS.getText();
         Chamadas c = new Chamadas();
         c.setEmissor(emissor);
         c.setReceptor(receptor);
-        c.setSMS(sms);
         c.chamadaVoz();
         
     }//GEN-LAST:event_jButton4ActionPerformed
@@ -181,6 +184,19 @@ public class Efetuar_chamada extends javax.swing.JFrame {
         new Menu_chamadas().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        Chamadas c = new Chamadas();
+        String emissor = txtEmissor.getText();
+        String receptor = txtReceptor.getText();
+        String sms = txtSMS.getText();
+        c.setEmissor(emissor);
+        c.setReceptor(receptor);
+        c.setSMS(sms);
+        c.chamadaSMS();
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
