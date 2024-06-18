@@ -24,6 +24,7 @@ public class Chamadas {
     private String receptor;
     private String sms;
     private int id = 1;
+    private static String linhas;
     
     
     public void chamadaVoz() {
@@ -406,7 +407,30 @@ public class Chamadas {
     
     public void visualizarChamadas()
     {
+        File arquivo = new File("src/arquivos/chamada.txt");
+        if(!arquivo.exists())
+        {
+            linhas = "Arquivo Inexistente";
+        }
         
+        else{
+            try(BufferedReader leitor = new BufferedReader(new FileReader(arquivo)))
+            { 
+                String line;
+                StringBuilder s = new StringBuilder();
+                while((line = leitor.readLine()) != null)
+                {
+                    linhas = s.append(line).append("\n").toString(); 
+                }
+                
+                leitor.close();
+            }
+            
+            catch(Exception e)
+            {
+                linhas = "Erro ao solicitar o histórico";
+            }
+        }
     }
     
     public void consultarChamada() {
@@ -454,5 +478,10 @@ public class Chamadas {
     public void setSMS(String valor)
     {
         this.sms = valor;
+    }
+    
+    public String getLinhas()
+    {
+        return linhas;
     }
 }

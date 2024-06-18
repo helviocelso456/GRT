@@ -1,4 +1,5 @@
-Cliente|cli100ao|Hélvio Celso Batalha Santana|Nif123AO|Normal|Activo|924204918|976|AOA
-Cliente|cli101ao|Diego Pires|Nif234AO|Normal|Activo|983296969|974|AOA
-Cliente|cli102ao|Daniel Gil|Nif456AO|Normal|Activo|960950479|996|AOA
-Cliente|cli103ao|Cristiano Ronaldo Dos Santos Aveiro|Nif777AO|Normal|Activo|921836234|972|AOA
+Cliente|cli100ao|Hélvio Santana|Nif123AO|Normal|Activo|987303719|4638|AOA
+Cliente|cli101ao|Diego Pires|Nif234AO|Normal|Activo|967695617|1000|AOA
+Cliente|cli102ao|Daniel Gil|Nif456AO|Normal|Activo|927476482|1000|AOA
+Cliente|cli103ao|Cristiano Ronado dos Santos Aveiro|Nif777AO|Normal|Activo|948431327|6955|AOA
+

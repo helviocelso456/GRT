@@ -129,6 +129,8 @@ public class Telefone
                  {
                      linhasT = conteudo.append(l).append("\n").toString();
                  }
+                 
+                 leitor.close();
              }
              
              catch(Exception e)
@@ -355,6 +357,51 @@ public class Telefone
             
         }
         
+    }
+    
+    public void consultarTelefoneDados(String valor)
+    {
+        File telefone = new File("src/arquivos/telefone.txt");
+        Boolean telefoneEncontrado = false;
+        if(!telefone.exists())
+        {
+            JOptionPane.showMessageDialog(null, "Arquivo Inexistente");
+            
+        }
+        
+        else if(valor.isEmpty() || valor.isBlank())
+        {
+            JOptionPane.showMessageDialog(null, "Insira o Telefone");
+        }
+        
+        else{
+            try(BufferedReader leitor = new BufferedReader(new FileReader(telefone)))
+            {
+                StringBuilder c = new StringBuilder();
+                String line;
+                while((line = leitor.readLine()) !=null)
+                {
+                    if(line.contains(valor))
+                    {
+                         telefoneEncontrado = true;
+                         c.append(line).append("\n");    
+                    }
+                }
+                
+                leitor.close();
+                
+                if (!telefoneEncontrado) {
+                JOptionPane.showMessageDialog(null, "O Telefone não existe");
+            } else {
+                JOptionPane.showMessageDialog(null, "Dados do Telefone \n" + c.toString());
+            }
+            }
+            
+            catch(Exception e)
+            {
+                JOptionPane.showMessageDialog(null, "Não foi possível consultar o Telefone");
+            }
+        }
     }
     
     

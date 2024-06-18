@@ -47,6 +47,13 @@ public class Cliente {
         String nif = "Nif"+Nif+"AO";
         String caminho = "src/arquivos/cliente.txt";
         File linha = new File(caminho);
+        
+        if(Nome.isEmpty() || Sobrenome.isEmpty() || Nif.isEmpty())
+        {
+            JOptionPane.showMessageDialog(null, "Preencha os dados!!");
+        }
+        
+        else{
          
          if(!linha.exists())
          {
@@ -87,7 +94,7 @@ public class Cliente {
              }
          }
         
-        
+        }
         
         
         
@@ -159,6 +166,49 @@ public class Cliente {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Erro ao ler arquivo de clientes");
             
+        }
+    }
+    
+    public void consultarCliente(String valor)
+    {
+        File cliente = new File("src/arquivos/cliente.txt");
+        Boolean clienteEncontrado = false;
+        if(!cliente.exists())
+        {
+            JOptionPane.showMessageDialog(null, "Arquivo Inexistente");
+            
+        }
+        
+        else if(valor.isEmpty() || valor.isBlank())
+        {
+            JOptionPane.showMessageDialog(null, "Insira o Id do cliente");
+        }
+        
+        else{
+            try(BufferedReader leitor = new BufferedReader(new FileReader(cliente)))
+            {
+                StringBuilder c = new StringBuilder();
+                String line;
+                while((line = leitor.readLine()) !=null)
+                {
+                    if(line.contains(valor))
+                    {
+                        clienteEncontrado = true;
+                         c.append(line).append("\n");    
+                    }
+                }
+                
+                if (!clienteEncontrado) {
+                JOptionPane.showMessageDialog(null, "O Cliente não existe");
+            } else {
+                JOptionPane.showMessageDialog(null, "Dados do Cliente \n" + c.toString());
+            }
+            }
+            
+            catch(Exception e)
+            {
+                JOptionPane.showMessageDialog(null, "Não foi possível consultar o cliente");
+            }
         }
     }
     

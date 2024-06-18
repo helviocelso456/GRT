@@ -13,9 +13,12 @@ public class Consultar_chamada extends javax.swing.JFrame {
     /**
      * Creates new form Consultar_chamada
      */
+    
+    private Boolean admin = false;
     public Consultar_chamada() {
         initComponents();
         txtTelefone.setDocument(new Filtros());
+        
     }
 
     /**
@@ -125,8 +128,16 @@ public class Consultar_chamada extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        new Menu_chamadas().setVisible(true);
-        this.dispose();
+        if( admin == true)
+        {
+            new Menu_consultas_chamadas().setVisible(true);
+            this.dispose();
+        }
+        
+        else{
+            new Menu_chamadas().setVisible(true);
+            this.dispose();
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -170,6 +181,11 @@ public class Consultar_chamada extends javax.swing.JFrame {
                 new Consultar_chamada().setVisible(true);
             }
         });
+    }
+    
+    public  void setBool(Boolean valor)
+    {
+        this.admin = valor;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

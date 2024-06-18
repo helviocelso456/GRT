@@ -8,15 +8,13 @@ package gestor_telefones;
  *
  * @author Administrator
  */
-public class Consultar_saldo extends javax.swing.JFrame {
+public class Consultar_telefone extends javax.swing.JFrame {
 
     /**
-     * Creates new form Consultar_saldo
+     * Creates new form Consultar_telefone
      */
-    private Boolean admin = false;
-    public Consultar_saldo() {
+    public Consultar_telefone() {
         initComponents();
-        txtTelefone.setDocument(new Filtros());
     }
 
     /**
@@ -28,8 +26,8 @@ public class Consultar_saldo extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jSeparator1 = new javax.swing.JSeparator();
         jLabel2 = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
         txtTelefone = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
@@ -37,16 +35,17 @@ public class Consultar_saldo extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("SALDO");
+        jLabel2.setText("TELEFONE");
 
         jLabel1.setText("Telefone");
 
         jButton3.setBackground(new java.awt.Color(51, 153, 0));
         jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setText("Consultar Saldo");
+        jButton3.setText("Consultar Telefone");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
@@ -76,7 +75,7 @@ public class Consultar_saldo extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(72, Short.MAX_VALUE)
+                .addContainerGap(42, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jLabel1)
@@ -108,7 +107,7 @@ public class Consultar_saldo extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(32, 32, 32))
         );
@@ -120,29 +119,19 @@ public class Consultar_saldo extends javax.swing.JFrame {
         // TODO add your handling code here:
         Telefone t = new Telefone();
         String telefone = txtTelefone.getText();
-        t.setEmissor(telefone);
-        t.consultarTelefone();
-        
+        t.consultarTelefoneDados(telefone);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        new Consultar_saldo().setVisible(true);
+        new Consultar_telefone().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        if( admin == true)
-        {
-            new Menu_consultas().setVisible(true);
-            this.dispose();
-        }
-        
-        else{
-            new PainelCliente().setVisible(true);
-            this.dispose();
-        }
+        new Menu_consultas().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
@@ -162,27 +151,22 @@ public class Consultar_saldo extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Consultar_saldo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Consultar_telefone.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Consultar_saldo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Consultar_telefone.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Consultar_saldo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Consultar_telefone.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Consultar_saldo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Consultar_telefone.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Consultar_saldo().setVisible(true);
+                new Consultar_telefone().setVisible(true);
             }
         });
-    }
-    
-    public  void setBool(Boolean valor)
-    {
-        this.admin = valor;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
